@@ -1,6 +1,6 @@
-const post = require"express".Router()
+const posts = require("express").Router()
 
-const { getAllCommentsByPost, getAllPosts, getSinglePost, createPost, deletePost } = require("../../queries/posts");
+const { getAllCommentsByPost, getAllPosts, getSinglePost, createPost, deletePost } = require("../queries/posts");
 
 
 posts.get("/comments/:id", getAllCommentsByPost)
