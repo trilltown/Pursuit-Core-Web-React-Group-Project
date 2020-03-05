@@ -7,8 +7,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+const usersRouter = require('./routes/users');
 
 
 app.use('/', indexRouter);
