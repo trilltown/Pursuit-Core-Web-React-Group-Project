@@ -1,16 +1,17 @@
 const posts = require("express").Router()
 
-const { getAllCommentsByPost, getAllPosts, getSinglePost, createPost, deletePost } = require("../queries/posts");
+const {  getAllPosts  } = require("../queries/posts");
 
 
-posts.get("/comments/:id", getAllCommentsByPost)
+
+// posts.get("/comments/:id", getAllCommentsByPost)
 
 posts.get("/", getAllPosts);
 
-posts.get("/:id", getSinglePost);
+// posts.get("/:id", getSinglePost);
 
-posts.post("/", createPost);
+// posts.post("/", createPost);
 
-posts.delete("/", deletePost)
+// posts.delete("/", deletePost)
 
 module.exports = posts;
