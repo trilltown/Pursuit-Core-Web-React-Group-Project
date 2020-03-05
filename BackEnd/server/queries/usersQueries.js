@@ -28,7 +28,22 @@ const searchUserByName = async (req,res,next) => {
     }
 }
 
-const insertSingleUser = async (req,res,next) => {
+const getUsersPosts = async (req,res,next) => {
+    try{
+        res.status(200).json([{
+            status: "Success",
+            message: "Retrieved users posts"
+        }])
+    } catch(error) {
+        res.json({
+            status: "Error",
+            message: "Could not get users post"
+        })
+    }
+}
+
+const createUser = async (req,res,next) => {
+
     try{
         res.status(200).json({
             status: "Success",
@@ -45,5 +60,6 @@ const insertSingleUser = async (req,res,next) => {
 module.exports = {
     getUserById,
     searchUserByName,
-    insertSingleUser
+    getUsersPosts,
+    createUser
 };

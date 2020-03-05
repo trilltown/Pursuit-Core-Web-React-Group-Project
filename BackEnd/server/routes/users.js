@@ -2,15 +2,16 @@ const express = require('express');
 const {
   getSingleUserById,
   searchUsersByName,
-  insertSingleUser,
+  createUser,
   deleteUsersById
 } = require("../queries/usersQueries.js")
 
 
 users.get("/:id:", getSingleUserById)
 users.get("/search/:username", searchUsersByName)
-// get usersPosts
-users.post("/",insertSingleUser)
+users.get("/posts", getUsersPosts)
+users.post("/", createUser)
 users.delete("/:id", deleteUsersById)
+
 
 module.exports = users;
