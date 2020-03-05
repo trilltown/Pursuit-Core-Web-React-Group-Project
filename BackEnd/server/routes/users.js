@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  getUserById,
+  getSingleUserById,
   searchUsersByName,
   insertSingleUser,
   deleteUsersById
