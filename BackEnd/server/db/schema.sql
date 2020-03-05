@@ -16,7 +16,7 @@ CREATE TABLE users
     last_name TEXT,
     display_name TEXT not null UNIQUE,
     profile_pic VARCHAR,
-    created TIMESTAMP
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE posts
@@ -25,7 +25,7 @@ CREATE TABLE posts
     user_post_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
     post_pic VARCHAR,
     caption TEXT,
-    created TIMESTAMP
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE comments
@@ -34,7 +34,7 @@ CREATE TABLE comments
     user_comments_id INTEGER REFERENCES users(id),
     post_comment_id INTEGER REFERENCES posts(id),
     body TEXT,
-    created TIMESTAMP
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE likes
