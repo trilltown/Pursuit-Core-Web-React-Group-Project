@@ -1,6 +1,6 @@
 const db = require("../db/index.js")
 
-const getUserById = async (req,res,next) => {
+const getSingleUserById = async (req,res,next) => {
     try{
         res.status(200).json({
             status: "Success",
@@ -14,7 +14,7 @@ const getUserById = async (req,res,next) => {
     }
 }
 
-const searchUserByName = async (req,res,next) => {
+const searchUsersByName = async (req,res,next) => {
     try{
         res.status(200).json({
             status: "Success",
@@ -57,9 +57,11 @@ const createUser = async (req,res,next) => {
     }
 }
 
+
+
 module.exports = {
-    getUserById,
-    searchUserByName,
+    getSingleUserById,
+    searchUsersByName,
     getUsersPosts,
-    createUser
+    createUser, 
 };
