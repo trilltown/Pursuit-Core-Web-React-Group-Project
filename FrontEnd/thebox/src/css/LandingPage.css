@@ -1,0 +1,14 @@
+body{
+    background-color: #6497b1;
+    color: black;
+}
+
+.bar{
+    display: grid;
+    grid-row: 2px;
+    margin-bottom: auto;
+}
+
+.logo{
+    
+}
