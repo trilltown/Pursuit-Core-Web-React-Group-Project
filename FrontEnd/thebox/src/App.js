@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
+import LandingNavBar from "./components/LandingPageNav"
+import FeedPage from "./components/FeedPage"
+import ProfilePage from "./components/ProfilePage"
+import LandingPage from "./components/LandingPage"
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <LandingNavBar/>
+    <Switch>
+      <Route path={"/feed"}>
+        <FeedPage/>
+      </Route>
+      <Route path={"/profile"}>
+        <ProfilePage/>
+      </Route>
+      <Route  exact path={"/"} >
+          <LandingPage/>
+      </Route>
+      <Route path="*" render={() => <div>Something Went Wrong</div>} />
+    </Switch>
+   
     </div>
   );
 }
