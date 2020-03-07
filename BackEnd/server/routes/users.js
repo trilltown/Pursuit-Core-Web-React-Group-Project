@@ -4,12 +4,12 @@ const {
   searchUsersByName,
   getUsersPosts,
   createUser
-} = require("../queries/usersQueries.js")
+} = require("../queries/usersQueries")
 
 
-users.get("/:id:", getSingleUserById)
-users.get("/search/:username", searchUsersByName)
-users.get("/posts", getUsersPosts)
+users.get("/:id", getSingleUserById)
+users.get("/search/:userName", searchUsersByName)
+users.get("/posts/:id", getUsersPosts)
 users.post("/", createUser)
 
 
