@@ -10,11 +10,13 @@ app.use(bodyParser.json());
 
 
 const usersRouter = require('./routes/users');
-const postRouter = require('./routes/post')
+const postRouter = require('./routes/post');
+const commentsRouter = require('./routes/comments');
 
 
 app.use('/users', usersRouter);
-app.use('/posts', postRouter)
+app.use('/posts', postRouter);
+app.use('/comments', commentsRouter);
 
 app.listen(port, () => console.log("Server running on port ", port));
 
