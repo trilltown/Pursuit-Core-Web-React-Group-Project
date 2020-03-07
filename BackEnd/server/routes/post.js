@@ -1,6 +1,6 @@
 const posts = require("express").Router()
 
-const {  getAllPosts, getPostbyUser } = require("../queries/posts");
+const {  getAllPosts, getPostbyUser, createPost } = require("../queries/posts");
 
 
 
@@ -10,7 +10,7 @@ posts.get("/", getAllPosts);
 
 posts.get("/:id", getPostByUser);
 
-// posts.post("/", createPost);
+ posts.post("/", createPost);
 
 // posts.delete("/", deletePost)
 
