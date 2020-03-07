@@ -58,10 +58,14 @@ VALUES('Phil','Awich','phil_dafreshprince','https://encrypted-tbn0.gstatic.com/i
     ('Kevin','Brutus','BrutusBeats','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT2SVuAezR73mkWrG3szf9XkhOSfzpGgktIpoow7kNWYmhmvKUL');
 
 INSERT INTO posts(user_post_id,post_pic,caption)
-VALUES(1,'this my pic','this my caption'),
-    (2,'Davids pic', 'My twin is danny'),
-    (3,'Oheeheedurrr', 'Skedaddle?'),
-    (4,'Broodus', 'big butts do not lie');
+VALUES(1,'https://snworksceo.imgix.net/ohi/b23abe80-2f2e-4e4c-9d2f-9262528acb0f.sized-1000x1000.jpg?w=1000','this my caption'),
+    (2,'https://images-na.ssl-images-amazon.com/images/I/51sgjBsnFBL._SX425_.jpg', 'My twin is danny'),
+    (3,'https://images-na.ssl-images-amazon.com/images/I/91dHRGIV65L._SL1500_.jpg', 'Skedaddle?'),
+    (4,'https://media.pitchfork.com/photos/5d37241d1852280008e542c3/1:1/w_320/popsmoke_thewoo.png', 'big butts do not lie'),
+    (1,'https://snworksceo.imgix.net/ohi/b23abe80-2f2e-4e4c-9d2f-9262528acb0f.sized-1000x1000.jpg?w=1000','this my caption'),
+    (2,'https://images-na.ssl-images-amazon.com/images/I/51sgjBsnFBL._SX425_.jpg', 'My twin is danny'),
+    (3,'https://images-na.ssl-images-amazon.com/images/I/91dHRGIV65L._SL1500_.jpg', 'Skedaddle?'),
+    (4,'https://media.pitchfork.com/photos/5d37241d1852280008e542c3/1:1/w_320/popsmoke_thewoo.png', 'big butts do not lie');
 
 INSERT INTO comments(user_comments_id, post_comment_id,body)
 VALUES(1, 2, 'Phil commenting on David'),
