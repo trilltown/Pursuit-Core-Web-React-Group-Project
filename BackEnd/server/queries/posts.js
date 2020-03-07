@@ -51,4 +51,19 @@ const createPost = async (req,res, next) => {
     }
 }
 
-module.exports = { getAllPosts, getPostByUser, createPost}
+const deletePost = async (req,res,next) => {
+    try{
+        await db.none("DELETE FROM posts WHERE id=$1", req.params.id)
+        res.status(200).json({
+            status: "Success",
+            message: "Deleted Post"
+         })
+    }catch(error){
+        res.status(401).json({
+            status: "fail",
+            message: "Unable to delete post"
+        })
+    }
+}
+
+module.exports = { getAllPosts, getPostByUser, createPost, deletePost}
