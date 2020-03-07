@@ -1,59 +1,103 @@
 const db = require("../db/index.js")
 
 const getSingleUserById = async (req,res,next) => {
+    console.log(req)
+    let { id } = req.params
+    let singleUser = await db.one("SELECT * FROM users where id = $1", [id])
     try{
         res.status(200).json({
             status: "Success",
             message: "Got a single user",
+            body: {
+                singleUser
+            }
         })
     } catch(error) {
         res.json({
             status: "Error",
             message: "No user found"
         })
+        next(error)
     }
 }
 
 const searchUsersByName = async (req,res,next) => {
+    let { userName } = req.params
+    let searchUser = await db.any("SELECT * FROM users where display_name = $1", [userName])
     try{
         res.status(200).json({
             status: "Success",
-            message: "Searched for user by name",
+            message: "Searched for user by name" + userName,
+            body: {
+                searchUser
+            }
         })
     } catch(error) {
         res.json({
             status: "Error",
             message: "No user found"
         })
+        next(error)
     }
 }
 
 const getUsersPosts = async (req,res,next) => {
+    let { id } = req.params
+    let usersPosts = await db.any("SELECT * from posts where id = $1", [id])
     try{
-        res.status(200).json([{
+        res.status(200).json({
             status: "Success",
-            message: "Retrieved users posts"
-        }])
+            message: "Retrieved users posts",
+            body: {
+                usersPosts
+            }
+        })
     } catch(error) {
         res.json({
             status: "Error",
             message: "Could not get users post"
         })
+        next(error)
     }
 }
 
-const createUser = async (req,res,next) => {
+// const createUser = async (req,res,next) => {
+//     let { first_name, last_name, display_name, profile_pic } = req.body
+//     let newUser = await db.one("INSERT INTO users(first_name, last_name, display_name, profile_pic) VALUES ($1,$2,$3,$4) RETURNING *", [first_name, last_name, display_name, profile_pic]);
+//     try{
+//         res.status(200).json({
+//             status: "Success",
+//             message: "Created a new user",
+//             body: {
+//                 newUser
+//             }
+//         })
+//     } catch(error) {
+//         res.json({
+//             status: "Error",
+//             message: "User already exists"
+//         })
+//         next(error)
+//     }
+// }
 
-    try{
+const createUser = async (req, res, next) => {
+    try {
+        let {first_name, last_name, display_name, profile_pic} = req.body
+        let newUser = await db.one("INSERT INTO users(first_name, last_name, display_name, profile_pic) VALUES ($1, $2, $3, $4) RETURNING *", [first_name, last_name, display_name, profile_pic])
         res.status(200).json({
             status: "Success",
-            message: "Created a new user",
+            message: "New User Created",
+            body: {
+                newUser
+            }
         })
-    } catch(error) {
+    } catch (error) {
         res.json({
-            status: "Error",
-            message: "User already exists"
-        })
+        status: "Error",
+        message: "User already exists"
+    })
+    next(error)
     }
 }
 
@@ -63,5 +107,5 @@ module.exports = {
     getSingleUserById,
     searchUsersByName,
     getUsersPosts,
-    createUser, 
+    createUser 
 };
