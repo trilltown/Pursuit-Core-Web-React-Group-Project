@@ -35,8 +35,9 @@ const getPostByUser = async (req,res, next) => {
 }
 
 const createPost = async (req,res, next) => {
+
     try{
-        let newPost = await db.one("SELECT INTO posts (post_pic, caption) VALUES (${post_pic}, ${caption} RETURNING *) ")
+        let newPost = await db.one("INSERT INTO posts  (user_post_id, post_pic, caption) VALUES (${user_post_id}, ${post_pic}, ${caption}) RETURNING *", req.body)
         res.status(200).json({
             status: "Success",
             message: "Create Post",

@@ -12,6 +12,6 @@ posts.get("/:id", getPostByUser);
 
  posts.post("/", createPost);
 
- posts.delete("/", deletePost)
+ posts.delete("/:id", deletePost)
 
 module.exports = posts;
