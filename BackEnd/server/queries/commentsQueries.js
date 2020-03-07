@@ -31,13 +31,31 @@ const getAllComments = async (req,res,next) => {
         })
     } catch(error) {
         res.status(401).json ({
-            status: "fail",
+            status: "Fail",
             message: "Cannot get all comments"
+        })
+    }
+}
+
+const deleteSingleComment = async (req,res,next) => {
+    try{
+        let { id } = req.params
+        await db.none("DELETE FROM comments WHERE id = $1", [id])
+        res.status(200).json({
+            status: "Status",
+            message: "Deleted Comment"
+        })
+    } catch(error) {
+        res.status(401).json({
+            status: "Fail",
+            message: "Unable to delete comment"
         })
     }
 }
 
 module.exports = {
     addSingleComment,
-    getAllComments
+    getAllComments,
+    deleteSingleComment
+    // editSingleComment
 }

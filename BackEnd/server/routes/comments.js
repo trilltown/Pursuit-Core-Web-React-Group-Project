@@ -1,15 +1,15 @@
 const comments = require('express').Router();
 const {
     getAllComments,
-    addSingleComment
+    addSingleComment,
     // editSingleComment,
-    // deleteSingleComment,
+    deleteSingleComment
 } = require("../queries/commentsQueries")
 
 comments.get("/", getAllComments)
 comments.post("/", addSingleComment)
 // comments.patch("/:id/", editSingleComment)
-// comments.delete("/:id/", deleteSingleComment)
+comments.delete("/:id/", deleteSingleComment)
 
 
 module.exports = comments;
