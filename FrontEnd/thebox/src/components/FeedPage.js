@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
+import '../css/FeedPage.css'
 import axios from 'axios'
 
 const FeedPage = () => {
@@ -26,20 +27,23 @@ const FeedPage = () => {
 
     return(
         <section>
-        <div>
+        <div className="search">
             <input></input>
             <br></br>
-            <button>Create Post</button>
         </div>
-        
-        <div>
+            <br></br>
+            <button>Create Post</button>
+            <br></br>
+        <div className="feed">
             {postPics}
             <p></p>
-            <button>Load More...</button>
         </div>
+            <button>Load More...</button>
 
         </section>
     )
 }
+
+
 
 export default FeedPage
