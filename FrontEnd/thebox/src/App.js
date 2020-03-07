@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LandingNavBar from "./components/LandingPageNav"
-import Login from "./components/Login"
-import SignUp from "./components/Signup"
-import LandingNavBar from "./components/LandingPage"
+import FeedPage from "./components/FeedPage"
+import ProfilePage from "./components/ProfilePage"
+import LandingPage from "./components/LandingPage"
 import './App.css';
 
 function App() {
@@ -11,11 +11,11 @@ function App() {
     <div className="App">
     <LandingNavBar/>
     <Switch>
-      <Route path={"/Login"}>
-        <Login/>
+      <Route path={"/feed"}>
+        <FeedPage/>
       </Route>
-      <Route path={"/SignUp"}>
-        <SignUp/>
+      <Route path={"/profile"}>
+        <ProfilePage/>
       </Route>
       <Route  exact path={"/"} >
           <LandingPage/>

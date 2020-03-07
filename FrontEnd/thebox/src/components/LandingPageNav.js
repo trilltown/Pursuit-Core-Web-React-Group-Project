@@ -5,8 +5,8 @@ const LandingNavBar = () => {
     return(
         <nav>
             <NavLink exact to={"/"}>HOME</NavLink>
-            <NavLink to={"/SignUp"}>Signup</NavLink>
-            <NavLink to={"/Login"}>Login</NavLink>
+            <NavLink to={"/feed"}>Feed</NavLink>
+            <NavLink to={"/profile"}>profile</NavLink>
         </nav>
     )
 }

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 
-const LandingPage = () => {
+const ProfilePage = () => {
 
     return(
         <div>
-            LandingPage
+            ProfilePage
         </div>
     )
 }
 
-export default LandingPage
+export default ProfilePage
