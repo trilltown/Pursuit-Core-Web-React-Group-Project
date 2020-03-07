@@ -27,9 +27,9 @@ const LandingPage = () => {
 
     }
 
-    cosnt handleSignup = async(e) => {
-        e.preventDefault()
-    }
+    // cosnt handleSignup = async(e) => {
+    //     e.preventDefault()
+    // }
 
     const login = ()=>{
         debugger
