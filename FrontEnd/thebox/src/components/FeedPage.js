@@ -7,6 +7,7 @@ import axios from 'axios'
 const FeedPage = () => {
     
     const [posts, setPosts] = useState([]);
+    const [file, setFile] = useState([])
 
     useEffect(() => {
     
@@ -26,6 +27,7 @@ const FeedPage = () => {
         return <div> <img src={post.post_pic} height="200px" width="200px"></img> <br/> {post.caption} </div>
     })
 
+
     return(
         <div>
         <nav>
@@ -33,11 +35,11 @@ const FeedPage = () => {
         </nav>
         <section>
         <div className="search">
-            <input></input>
+            <input placeholder="Search User"></input>
             <br></br>
         </div>
             <br></br>
-            <button>Create Post</button>
+            <input type="file"/>
             <br></br>
         <div className="feed">
             {postPics}

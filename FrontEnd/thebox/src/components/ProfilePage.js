@@ -12,7 +12,7 @@ const ProfilePage = () => {
     
         const fetchData = async () => {
             try{
-                let res = await axios.get("http://localhost:3001/users/4")
+                let res = await axios.get("http://localhost:3001/users/1")
                 let data = Object.values(res.data.body)
                 setUser(data)
                 console.log(user)
@@ -27,7 +27,7 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                let res = await axios.get("http://localhost:3001/posts/4")
+                let res = await axios.get("http://localhost:3001/posts/1")
                 let postImages = res.data.body
                 setPosts(postImages)
             } catch(error) {
@@ -69,6 +69,10 @@ const ProfilePage = () => {
         <div className="userInfo">
         {userInfo}
         </div>      
+        <br></br>
+        <div className="file">
+        <input type="file"/>
+        </div>
         <div className="userPosts">
             {userPosts}
         </div>

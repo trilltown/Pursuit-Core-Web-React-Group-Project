@@ -1,19 +1,20 @@
 .profilePic img{
     display: flex;
     position: absolute;
-    margin-top: 40px;
-    margin-left: 15%;
+    margin-top: 60px;
+    margin-left: 10%;
     border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
 }
 
 .userName {
     display: flex;
     position: absolute;
-    margin-top: 70px;
-    margin-left: 33%;
+    margin-top: 100px;
+    margin-left: 25%;
     font-weight: bold;
+    font-size: 35px;
 }
 
 .userPosts {
@@ -28,4 +29,12 @@
     height: 200px;
     width: 200px;
     padding: 20px;
+}
+
+.file {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 25%;
 }
