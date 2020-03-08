@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import LandingNavBar from './LandingPageNav'
 import { useHistory } from 'react-router-dom';
 import '../css/FeedPage.css'
+import imgs from '../css/images/logo1.png'
+
 import axios from 'axios'
+
 
 const FeedPage = () => {
     
@@ -32,6 +35,9 @@ const FeedPage = () => {
         <div>
         <nav>
             <LandingNavBar />
+            <input type="image" id="button" src={imgs}></input>
+          
+
         </nav>
         <section>
         <div className="search">

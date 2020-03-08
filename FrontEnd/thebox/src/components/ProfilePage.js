@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import '../css/ProfilePage.css'
+import imgs from '../css/images/logo1.png'
 import axios from 'axios';
 import LandingNavBar from "./LandingPageNav";
 
 const ProfilePage = () => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([])
+
     const history = useHistory();
+
 
     useEffect(() => {
         
@@ -62,23 +65,25 @@ const ProfilePage = () => {
             </div>
         </div>
     })
-
+    
     const handleLogout = () => {
         alert("You are now leaving 'The Box'")
         sessionStorage.clear("currentUser")
         history.push("/")
     }
-
+    
     return( 
         <div>
         <nav>
             <LandingNavBar />
+            <input type="image" id="button" onClick={() => history.push('/feed')} src={imgs}></input>
+
         </nav>
-        <div>
+        <div className="logout">
+        <button onClick={handleLogout}>LOGOUT</button>
         </div>
         <div>
         <div className="userInfo">
-        <button onClick={handleLogout}>LOGOUT</button>
         {userInfo}
         </div>      
         <br></br>

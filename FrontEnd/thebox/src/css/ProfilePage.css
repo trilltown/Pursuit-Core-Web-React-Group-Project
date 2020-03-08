@@ -8,6 +8,13 @@
     width: 180px;
 }
 
+.logout {
+    display: flex;
+    position: absoloute;
+    margin-top: 30px;
+    justify-content: center;
+}
+
 .userName {
     display: flex;
     position: absolute;
@@ -23,6 +30,7 @@
     flex-wrap: wrap;
     position: absolute;
     margin-top: 20%;
+    color:white
 }
 
 .userPosts img {

@@ -16,10 +16,16 @@
     font-family: sans-serif;
     font-weight: 400;
     font-size: 15px;
+    color: white;
 }
 
 .search input {
     width: 300px;
     height: 20px;
     margin-top: 100px;
+}
+
+#button{
+    height: 50px;
+    width: 50px;
 }
