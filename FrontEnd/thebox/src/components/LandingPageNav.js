@@ -1,7 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+<<<<<<< HEAD
+import '../css/LandingPageNav.css'
+=======
 
 // import '../css/LandingPageNav.css'
+>>>>>>> 3035876997991b4ddc3ddfeeefffb1273c0ee168
 
 
 const LandingNavBar = () => {
