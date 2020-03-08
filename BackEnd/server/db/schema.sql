@@ -52,10 +52,10 @@ CREATE TABLE hashtags
 );
 
 INSERT INTO users(first_name, last_name, display_name, profile_pic)
-VALUES('Phil','Awich','phil_dafreshprince','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSEhY0PZ7NmFfEFBfr9IyWjgBAqe-z8yChCEVxHvl24ajspuR0Z'),
+VALUES('Phil','Awich','phil_dafreshprince','https://avatars3.githubusercontent.com/u/53059632?s=460&v=4'),
     ('David','Maravillas','classicmanDavid','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5dhjpy7u_2LL3I1Br50Tb-7m-qFAmFMeoup7huUuuflooC-Nx'),
     ('Ohidur','Rahman','Oh_ImmaBoogie','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQS-SVVy7YdUm6dbp96UMP0t-cmPBdq3oJMrv407LEHpuOFXoib'),
-    ('Kevin','Brutus','BrutusBeats','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT2SVuAezR73mkWrG3szf9XkhOSfzpGgktIpoow7kNWYmhmvKUL');
+    ('Kevin','Brutus','BrutusBeats','https://pbs.twimg.com/profile_images/1163474125219946497/WKdG7GRj_400x400.jpg');
 
 INSERT INTO posts(user_post_id,post_pic,caption)
 VALUES(1,'https://snworksceo.imgix.net/ohi/b23abe80-2f2e-4e4c-9d2f-9262528acb0f.sized-1000x1000.jpg?w=1000','The Box is hot'),
@@ -65,7 +65,9 @@ VALUES(1,'https://snworksceo.imgix.net/ohi/b23abe80-2f2e-4e4c-9d2f-9262528acb0f.
     (1,'https://images-na.ssl-images-amazon.com/images/I/61bnnLO1WCL._SY355_.jpg', 'Sweet n Flossy'),
     (2,'https://images-na.ssl-images-amazon.com/images/I/41Fbtr2VASL._SX355_.jpg', 'Classic'),
     (3,'https://omegamusicdayton.com/Photo/418459519694', 'Astro'),
-    (4,'https://images.genius.com/74c8eed9a5dc07c67dad48d9a98525b8.1000x1000x1.jpg', 'Treeshin');
+    (4,'https://images.genius.com/74c8eed9a5dc07c67dad48d9a98525b8.1000x1000x1.jpg', 'Treeshin'),
+    (3,'https://i1.sndcdn.com/avatars-000220478901-054n09-t500x500.jpg', 'Freethrow 69'),
+    (1, 'https://ibighit.com/bts/images/bts/discography/skool_luv_affair/album-cover.jpg', 'Kpop is life');
 
 INSERT INTO comments(user_comments_id, post_comment_id,body)
 VALUES(1, 2, 'Phil commenting on David'),
