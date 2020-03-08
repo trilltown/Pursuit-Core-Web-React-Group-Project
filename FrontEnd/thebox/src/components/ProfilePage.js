@@ -64,6 +64,7 @@ const ProfilePage = () => {
     })
 
     const handleLogout = () => {
+        alert("You are now leaving 'The Box'")
         sessionStorage.clear("currentUser")
         history.push("/")
     }
