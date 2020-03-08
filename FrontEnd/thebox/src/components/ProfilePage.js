@@ -12,7 +12,6 @@ const ProfilePage = () => {
         
         const fetchData = async () => {
             try{
-                let res = await axios.get("http://localhost:3001/users/1")
                 let id = sessionStorage.getItem("currentUser")
                 let res = await axios.get(`http://localhost:3001/users/${id}`)
                 let data = Object.values(res.data.body)
@@ -29,7 +28,6 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                let res = await axios.get("http://localhost:3001/posts/1")
                 let id = sessionStorage.getItem("currentUser")
                 let res = await axios.get(`http://localhost:3001/posts/${id}`)
                 let postImages = res.data.body
