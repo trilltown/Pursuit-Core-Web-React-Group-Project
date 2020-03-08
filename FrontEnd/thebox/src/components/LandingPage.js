@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import "../css/LandingPage.css"
-import axios from 'axios'
+import axios from 'axios';
+import imgs from '../css/images/logo1.png'
 const LandingPage = () => {
 
     const [Form,setShowForm] = useState(false)
     const [signUpForm, setsignUpForm] = useState(false)
+    const history = useHistory()
 
     
     const handleLogInClick = () =>  {
@@ -19,18 +21,21 @@ const LandingPage = () => {
         setsignUpForm(!signUpForm)
     }
     const handleLogin = async(e) => {
-        debugger
         e.preventDefault()
         let display_name = e.target.display_name.value
+        let url=`http://localhost:3001/users/search/${display_name}`
         try{
-        let res = await axios.get(`/users/search/${display_name}`)
-        
-        debugger
+        let res = await axios.get(url)
+        let user=res.data.body.searchUser
+            if(user.length){
+                sessionStorage.setItem("currentUser",user[0].id)
+                history.push(`/feed`)
+            }else{
+                alert("fail")
+            }
         }catch(error){
             console.log(error);
-            
         }
-
     }
 
     const  handleSignup = async(e) => {
@@ -75,7 +80,8 @@ const LandingPage = () => {
         <div className="LandingPage">
             <div>
 
-            <img className="logo" src="../css/images/logo1.png"></img>
+            <img className="logo" src={imgs}/>
+            <img src='FrontEnd/thebox/src/css/images/whitespeaker.jpg' alt=""></img>
             </div>
                 <header>
                     <button id="logIN" onClick={handleLogInClick}>Login</button>
