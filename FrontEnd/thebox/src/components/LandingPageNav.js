@@ -7,7 +7,6 @@ const LandingNavBar = () => {
     <header className="toolbar">
         <nav className="toolbar_navigation">
             <div className="toolbar_navigation_items">
-            <NavLink exact to={"/"}>HOME</NavLink>
             <NavLink to={"/feed"}>Feed</NavLink>
             <NavLink to={"/profile"}>profile</NavLink>
             </div>
