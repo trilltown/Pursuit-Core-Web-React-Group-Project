@@ -7,6 +7,8 @@ import LandingNavBar from "./LandingPageNav";
 const ProfilePage = () => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([])
+    const [logoutButton, setLogout] = useState([])
+    const history = useHistory();
 
     useEffect(() => {
         
@@ -62,13 +64,21 @@ const ProfilePage = () => {
         </div>
     })
 
+    const handleLogout = () => {
+        sessionStorage.clear("currentUser")
+        history.push("/")
+    }
+
     return( 
         <div>
         <nav>
             <LandingNavBar />
         </nav>
         <div>
+        </div>
+        <div>
         <div className="userInfo">
+        <button onClick={handleLogout}>LOGOUT</button>
         {userInfo}
         </div>      
         <div className="userPosts">
