@@ -8,7 +8,9 @@ import LandingNavBar from "./LandingPageNav";
 const ProfilePage = () => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([])
+
     const history = useHistory();
+
 
     useEffect(() => {
         
@@ -64,12 +66,14 @@ const ProfilePage = () => {
         </div>
     })
 
+
     const handleLogout = () => {
         alert("You are now leaving 'The Box'")
         sessionStorage.clear("currentUser")
         history.push("/")
     }
     
+
 
     return( 
         <div>
@@ -78,6 +82,7 @@ const ProfilePage = () => {
             <input type="image" id="button" onClick={() => history.push('/feed')} src={imgs}></input>
 
         </nav>
+
         <div>
         </div>
         <div>
