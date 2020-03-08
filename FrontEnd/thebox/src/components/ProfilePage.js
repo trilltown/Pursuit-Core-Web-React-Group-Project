@@ -74,7 +74,7 @@ const ProfilePage = () => {
         <nav>
             <LandingNavBar />
         </nav>
-        <div>
+        <div className="logout">
         <button onClick={handleLogout}>LOGOUT</button>
         </div>
         <div>
