@@ -56,7 +56,7 @@ const LandingPage = () => {
 
     const login = ()=>{
         return <div>
-            <form onSubmit={handleLogin}>
+            <form id="loginForm" onSubmit={handleLogin}>
                 <input name="display_name" placeholder="username"></input>
                 {/* <input name="password" type="password" placeholder="password"></input> */}
                 <button type="submit">submit</button>
@@ -69,7 +69,7 @@ const LandingPage = () => {
     const signup = () => {
         return( 
             <div>
-     <form onSubmit={handleSignup}>
+     <form id="signupForm" onSubmit={handleSignup}>
         <input name="firstname"placeholder="First Name"></input>
         <input name="lastname" placeholder="Last Name"></input>
         <input name="username" placeholder="Username"></input>
@@ -83,22 +83,24 @@ const LandingPage = () => {
     return(
         <div className="LandingPage">
             <div>
-
+        <div id="leftSide">
             <img className="logo" src={imgs}/>
-            <img src='FrontEnd/thebox/src/css/images/whitespeaker.jpg' alt=""></img>
+                <h1 className="header">The Box.</h1>
             </div>
+            {/* <img src='FrontEnd/thebox/src/css/images/whitespeaker.jpg' alt=""></img> */}
+            </div>
+            <div id='rightSide'>
                 <header>
                     <button id="logIN" onClick={handleLogInClick}>Login</button>
                     <button id="signUP" onClick={handleSignUpClick}>Signup</button>
                 </header>
-                <h1 className="header">The Box.</h1>
+                </div>
+
 
                 {Form?login():null}
                 {signUpForm?signup():null}
-
-
                 
-        </div>
+            </div>
     )
 }
 
