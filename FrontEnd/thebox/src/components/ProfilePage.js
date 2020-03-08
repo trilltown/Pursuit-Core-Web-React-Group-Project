@@ -62,23 +62,23 @@ const ProfilePage = () => {
             </div>
         </div>
     })
-
+    
     const handleLogout = () => {
         alert("You are now leaving 'The Box'")
         sessionStorage.clear("currentUser")
         history.push("/")
     }
-
+    
     return( 
         <div>
         <nav>
             <LandingNavBar />
         </nav>
         <div>
+        <button onClick={handleLogout}>LOGOUT</button>
         </div>
         <div>
         <div className="userInfo">
-        <button onClick={handleLogout}>LOGOUT</button>
         {userInfo}
         </div>      
         <div className="userPosts">
