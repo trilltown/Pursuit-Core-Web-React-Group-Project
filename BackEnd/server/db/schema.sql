@@ -67,7 +67,9 @@ VALUES(1,'https://snworksceo.imgix.net/ohi/b23abe80-2f2e-4e4c-9d2f-9262528acb0f.
     (3,'https://omegamusicdayton.com/Photo/418459519694', 'Astro'),
     (4,'https://images.genius.com/74c8eed9a5dc07c67dad48d9a98525b8.1000x1000x1.jpg', 'Treeshin'),
     (3,'https://i1.sndcdn.com/avatars-000220478901-054n09-t500x500.jpg', 'Freethrow 69'),
-    (1, 'https://ibighit.com/bts/images/bts/discography/skool_luv_affair/album-cover.jpg', 'Kpop is life');
+    (1, 'https://ibighit.com/bts/images/bts/discography/skool_luv_affair/album-cover.jpg', 'Kpop is life'),
+    (4, 'https://files.slack.com/files-pri/TCVA3PF24-FV1ENKUMA/image_from_ios.jpg', 'Say it'),
+    (1, 'https://upload.wikimedia.org/wikipedia/en/c/c5/Young_the_Giant_-_Young_the_Giant.jpg', 'Young the Giant');
 
 INSERT INTO comments(user_comments_id, post_comment_id,body)
 VALUES(1, 2, 'Phil commenting on David'),
