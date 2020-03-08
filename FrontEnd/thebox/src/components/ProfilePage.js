@@ -65,23 +65,13 @@ const ProfilePage = () => {
             </div>
         </div>
     })
-<<<<<<< HEAD
     
-=======
-
-
->>>>>>> 3035876997991b4ddc3ddfeeefffb1273c0ee168
     const handleLogout = () => {
         alert("You are now leaving 'The Box'")
         sessionStorage.clear("currentUser")
         history.push("/")
     }
     
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 3035876997991b4ddc3ddfeeefffb1273c0ee168
     return( 
         <div>
         <nav>
@@ -89,13 +79,8 @@ const ProfilePage = () => {
             <input type="image" id="button" onClick={() => history.push('/feed')} src={imgs}></input>
 
         </nav>
-<<<<<<< HEAD
         <div className="logout">
         <button onClick={handleLogout}>LOGOUT</button>
-=======
-
-        <div>
->>>>>>> 3035876997991b4ddc3ddfeeefffb1273c0ee168
         </div>
         <div>
         <div className="userInfo">
