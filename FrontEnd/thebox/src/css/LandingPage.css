@@ -66,6 +66,18 @@ body{
     background-color: red;
 }
 
+.signup-info{
+    display: grid;
+    position: absolute;
+    top: 24px;
+    right: 0;
+    z-index: 999;
+    background: #fff;
+    background-image: linear-gradient(top, #fff, #eee);
+    padding: 15px;
+    box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+    border-radius: 3px 0 3px 3px;
+}
 #logIN{
     width: 100%;
 	color: black;
@@ -80,3 +92,16 @@ body{
     color:black  
 }
 
+.login-info{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 24px;
+    right: 0;
+    z-index: 999;
+    background: #fff;
+    background-image: linear-gradient(top, #fff, #eee);
+    padding: 15px;
+    box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+    border-radius: 3px 0 3px 3px;
+}
