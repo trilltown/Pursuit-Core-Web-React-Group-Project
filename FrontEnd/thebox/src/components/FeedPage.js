@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LandingNavBar from './LandingPageNav'
 import { useHistory } from 'react-router-dom';
 import '../css/FeedPage.css'
 import axios from 'axios'
@@ -26,6 +27,10 @@ const FeedPage = () => {
     })
 
     return(
+        <div>
+        <nav>
+            <LandingNavBar />
+        </nav>
         <section>
         <div className="search">
             <input></input>
@@ -41,6 +46,7 @@ const FeedPage = () => {
             <button>Load More...</button>
 
         </section>
+        </div>
     )
 }
 
