@@ -37,7 +37,6 @@ const LandingPage = () => {
     }
 
     const  handleSignup = async(e) => {
-        debugger
         e.preventDefault()
         let firstname={firstname:e.target.firstname.value}
         let lastname={lastname:e.target.lastname.value}
