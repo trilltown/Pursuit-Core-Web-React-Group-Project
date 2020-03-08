@@ -53,8 +53,9 @@ CREATE TABLE hashtags
 
 INSERT INTO users(first_name, last_name, display_name, profile_pic)
 VALUES('Phil','Awich','phil_dafreshprince','https://avatars3.githubusercontent.com/u/53059632?s=460&v=4'),
-    ('David','Maravillas','classicmanDavid','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5dhjpy7u_2LL3I1Br50Tb-7m-qFAmFMeoup7huUuuflooC-Nx'),
-    ('Ohidur','Rahman','Oh_ImmaBoogie','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQS-SVVy7YdUm6dbp96UMP0t-cmPBdq3oJMrv407LEHpuOFXoib'),
+
+    ('David','Maravillas','classicmanDavid','https://regmedia.co.uk/2014/05/23/bart_simpson_teaser.jpg?x=442&y=293&crop=1'),
+    ('Ohidur','Rahman','Oh_ImmaBoogie','https://files.slack.com/files-pri/TCVA3PF24-FURSNMTL1/image_from_ios.jpg'),
     ('Kevin','Brutus','BrutusBeats','https://pbs.twimg.com/profile_images/1163474125219946497/WKdG7GRj_400x400.jpg');
 
 INSERT INTO posts(user_post_id,post_pic,caption)

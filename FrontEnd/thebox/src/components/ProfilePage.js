@@ -8,6 +8,9 @@ const ProfilePage = () => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([])
 
+    const history = useHistory();
+
+
     useEffect(() => {
         
         const fetchData = async () => {
@@ -62,13 +65,25 @@ const ProfilePage = () => {
         </div>
     })
 
+
+    const handleLogout = () => {
+        alert("You are now leaving 'The Box'")
+        sessionStorage.clear("currentUser")
+        history.push("/")
+    }
+
+
     return( 
         <div>
         <nav>
             <LandingNavBar />
         </nav>
+
+        <div>
+        </div>
         <div>
         <div className="userInfo">
+        <button onClick={handleLogout}>LOGOUT</button>
         {userInfo}
         </div>      
         <div className="userPosts">
