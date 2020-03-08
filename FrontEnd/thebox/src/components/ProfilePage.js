@@ -65,16 +65,13 @@ const ProfilePage = () => {
             </div>
         </div>
     })
-
-
+    
     const handleLogout = () => {
         alert("You are now leaving 'The Box'")
         sessionStorage.clear("currentUser")
         history.push("/")
     }
     
-
-
     return( 
         <div>
         <nav>
@@ -82,12 +79,11 @@ const ProfilePage = () => {
             <input type="image" id="button" onClick={() => history.push('/feed')} src={imgs}></input>
 
         </nav>
-
-        <div>
+        <div className="logout">
+        <button onClick={handleLogout}>LOGOUT</button>
         </div>
         <div>
         <div className="userInfo">
-        <button onClick={handleLogout}>LOGOUT</button>
         {userInfo}
         </div>      
         <div className="userPosts">

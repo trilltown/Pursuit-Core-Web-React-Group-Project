@@ -8,6 +8,13 @@
     width: 200px;
 }
 
+.logout {
+    display: flex;
+    position: absoloute;
+    margin-top: 30px;
+    justify-content: center;
+}
+
 .userName {
     display: flex;
     position: absolute;
