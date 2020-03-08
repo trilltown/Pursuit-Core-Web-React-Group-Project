@@ -11,12 +11,10 @@ const LandingPage = () => {
 
     
     const handleLogInClick = () =>  {
-        debugger
         console.log(Form)
         setShowForm(!Form)
     }
     const handleSignUpClick = () =>  {
-        debugger
         console.log(signUpForm)
         setsignUpForm(!signUpForm)
     }
@@ -39,7 +37,6 @@ const LandingPage = () => {
     }
 
     const  handleSignup = async(e) => {
-        debugger
         e.preventDefault()
         [e.target.name] = e.target.name.value
      try{
@@ -52,7 +49,6 @@ const LandingPage = () => {
     }
 
     const login = ()=>{
-        debugger
         return <div>
             <form onSubmit={handleLogin}>
                 <input name="display_name" placeholder="username"></input>
