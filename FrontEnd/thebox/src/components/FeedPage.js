@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import '../css/FeedPage.css'
 import axios from 'axios'
 
+
 const FeedPage = () => {
     
     const [posts, setPosts] = useState([]);
@@ -33,7 +34,7 @@ const FeedPage = () => {
         </nav>
         <section>
         <div className="search">
-            <input></input>
+            <input placeholder="Search"></input>
             <br></br>
         </div>
             <br></br>
