@@ -33,11 +33,11 @@ const FeedPage = () => {
         <div>
         <nav>
             <LandingNavBar />
-            <input type="image" id="button" src={imgs}></input>
           
 
         </nav>
         <section>
+            <input type="image" id="button" src={imgs}></input>
         <div className="search">
             <input placeholder="Search"></input>
             <br></br>
