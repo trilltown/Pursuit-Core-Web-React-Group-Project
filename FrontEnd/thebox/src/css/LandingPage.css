@@ -1,35 +1,82 @@
 body{
-
-    background-color: #6497b1;
+    
+    background-color: #011f4b;
     color: black;
+    font-family: monospace
 }
 
-.bar{
+
+.LandingPage{
+    /* height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px; */
+    /* display: grid;
+    justify-content: center;
+    align-self: start; */
+    
+} 
+/* .bar{
     display: grid;
     grid-row: 2px;
     margin-bottom: auto;
-}
+} */
 
 .logo{
-    height: 100px;
-    width: 100px;;
+    height: 110px;
+    width: 110px;;
+}
+#leftSide{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    background-color: #005b96;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
 }
 
-header{
-    display: grid;
-    flex-direction: row-end;
-    flex-wrap: wrap-reverse;
-}
 
+#rightSide{
+    display: flex;
+    flex-direction: row-reverse;
+    
+    
+    background-color:#03396c;
+}
 #signUP{
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    height: 25px;
-    line-height: 25px;
-    font-weight: bold;
-    padding: 0 8px;
-    text-decoration: none;
-    color: #444;
-    text-shadow: 0 1px 0 #fff
+    width: 100%;
+	color: black;
+	background-color: #b3cde0;
+	border-radius: 100px;
+	line-height: 20px;
+	font-size: 20px;
+	margin-bottom: 10px;
 }
+
+#signUP:hover{
+    background-color: #03396c;
+    color: black;
+}
+
+#signUP:active{
+    background-color: red;
+}
+
+#logIN{
+    width: 100%;
+	color: black;
+	background-color: #b3cde0;
+	border-radius: 100px;
+	line-height: 20px;
+	font-size: 20px;
+}
+
+#logIN:hover{
+    background-color: #03396c;
+    color:black  
+}
+
