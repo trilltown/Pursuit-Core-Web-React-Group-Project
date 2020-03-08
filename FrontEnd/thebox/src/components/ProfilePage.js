@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import '../css/ProfilePage.css'
 import axios from 'axios';
+import LandingNavBar from "./LandingPageNav";
 
 const ProfilePage = () => {
     const [user, setUser] = useState([]);
@@ -61,11 +62,16 @@ const ProfilePage = () => {
 
     return( 
         <div>
+        <nav>
+            <LandingNavBar />
+        </nav>
+        <div>
         <div className="userInfo">
         {userInfo}
         </div>      
         <div className="userPosts">
             {userPosts}
+        </div>
         </div>
         </div>
     )
