@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import '../css/ProfilePage.css'
+import imgs from '../css/images/logo1.png'
 import axios from 'axios';
 import LandingNavBar from "./LandingPageNav";
 
@@ -71,12 +72,15 @@ const ProfilePage = () => {
         sessionStorage.clear("currentUser")
         history.push("/")
     }
+    
 
 
     return( 
         <div>
         <nav>
             <LandingNavBar />
+            <input type="image" id="button" onClick={() => history.push('/feed')} src={imgs}></input>
+
         </nav>
 
         <div>
