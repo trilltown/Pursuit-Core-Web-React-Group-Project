@@ -9,10 +9,12 @@ const ProfilePage = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-    
+        
         const fetchData = async () => {
             try{
                 let res = await axios.get("http://localhost:3001/users/1")
+                let id = sessionStorage.getItem("currentUser")
+                let res = await axios.get(`http://localhost:3001/users/${id}`)
                 let data = Object.values(res.data.body)
                 setUser(data)
                 console.log(user)
@@ -28,6 +30,8 @@ const ProfilePage = () => {
         const fetchPosts = async () => {
             try {
                 let res = await axios.get("http://localhost:3001/posts/1")
+                let id = sessionStorage.getItem("currentUser")
+                let res = await axios.get(`http://localhost:3001/posts/${id}`)
                 let postImages = res.data.body
                 setPosts(postImages)
             } catch(error) {
