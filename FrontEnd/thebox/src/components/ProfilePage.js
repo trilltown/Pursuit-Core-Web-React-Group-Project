@@ -7,7 +7,6 @@ import LandingNavBar from "./LandingPageNav";
 const ProfilePage = () => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([])
-    const [logoutButton, setLogout] = useState([])
     const history = useHistory();
 
     useEffect(() => {
