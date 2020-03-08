@@ -11,12 +11,10 @@ const LandingPage = () => {
 
     
     const handleLogInClick = () =>  {
-        debugger
         console.log(Form)
         setShowForm(!Form)
     }
     const handleSignUpClick = () =>  {
-        debugger
         console.log(signUpForm)
         setsignUpForm(!signUpForm)
     }
@@ -41,9 +39,15 @@ const LandingPage = () => {
     const  handleSignup = async(e) => {
         debugger
         e.preventDefault()
-        [e.target.name] = e.target.name.value
+        let firstname={firstname:e.target.firstname.value}
+        let lastname={lastname:e.target.lastname.value}
+        let username={username:e.target.username.value}
+        let profilePic={profile_pic:e.target.profile_pic.value}
+
      try{
-         let res = await axios.post(`/users/`)
+         let res = await axios.post(`http://localhost:3000/users/`)
+         console.log(res.data);         
+         history.push(`/feed`)
      }catch(error){
          console.log(error);
          
@@ -52,7 +56,6 @@ const LandingPage = () => {
     }
 
     const login = ()=>{
-        debugger
         return <div>
             <form onSubmit={handleLogin}>
                 <input name="display_name" placeholder="username"></input>
@@ -66,13 +69,15 @@ const LandingPage = () => {
     
     const signup = () => {
         return( 
-     <form onSumbit={handleSignup}>
-        <input name="firstname" placeholder="First Name"></input>
+            <div>
+     <form onSubmit={handleSignup}>
+        <input name="firstname"placeholder="First Name"></input>
         <input name="lastname" placeholder="Last Name"></input>
         <input name="username" placeholder="Username"></input>
         <input name="profile_pic" placeholder="VARCHAR"></input>
         <button type="submit">Submit</button>
      </form>
+     </div>
         )
     }
 
