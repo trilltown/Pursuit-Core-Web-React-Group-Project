@@ -11,6 +11,7 @@ const FeedPage = () => {
     const [posts, setPosts] = useState([]);
     const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false)
+    const [caption, setCaption] = useState("")
 
     useEffect(() => {
     
@@ -45,23 +46,27 @@ const FeedPage = () => {
         )
         const file = await res.json()
         setImage(file.secure_url)
-        debugger 
         setLoading(false)
         
     }
 
+    const handleCaption = (e) => {
+        setCaption(e.target.value)
+    }
+
     const handleClick = async (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         let id = sessionStorage.getItem("currentUser")
+            // debugger
         const data = {
             "user_post_id": id,
             "post_pic": image,
-            "caption": "cool"
+            "caption": caption
         }
         axios.post("http://localhost:3001/posts", data)
             .then((data) => {
                 console.log(data)
-                debugger
+                // debugger
             })
             .catch((err) => {
                 console.log(err)
@@ -84,11 +89,12 @@ const FeedPage = () => {
         </div>
             <br></br>
     
-            <div className="fileUpload">
+            <form className="fileUpload" onSubmit={handleClick}>
+            
             <input type="file" name="myFile" placeholder="Upload an Image" onChange={uploadImage}/>
-            <input placeholder="Comment"></input>
-            <button type="button" onClick={handleClick}>Create Post</button>
-            </div>
+            <input  name="caption" placeholder="Comment" onChange={handleCaption}></input>
+            <button type="submit">Create Post</button>
+            </form>
 
             {loading ? (
                 <h3>Loading...</h3>
