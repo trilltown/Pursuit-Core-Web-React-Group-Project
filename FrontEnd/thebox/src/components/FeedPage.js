@@ -3,12 +3,8 @@ import LandingNavBar from './LandingPageNav'
 import { useHistory } from 'react-router-dom';
 import '../css/FeedPage.css'
 import imgs from '../css/images/WhiteLogo.png'
-
 import axios from 'axios'
 
-{/* <input name="file" type="file"
-   class="file-upload" data-cloudinary-field="image_id"
-   data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"/> */}
 
 const FeedPage = () => {
     
@@ -34,24 +30,25 @@ const FeedPage = () => {
         return <div> <img src={post.post_pic} height="200px" width="200px"></img> <br/> {post.caption} </div>
     })
 
-    const uploadImage = (e) => {
-        let file = e.target.files[0];
+    const uploadImage = async (e) => {
+        const files = e.target.files;
+        const data = new FormData();
+        data.append('file', files[0])
+        data.append('upload_preset', 'the_box')
+        setLoading(true)
+        const res = await fetch(
+            'https://api.cloudinary.com/v1_1/akb48/image/upload', 
+            {
+                method: 'POST',
+                body: data
+            }
+        )
+        const file = await res.json()
+        setImage(file.secure_url)
+        setLoading(false)
     }
 
-   
-    // const handleUpload = async(e) => {
-    //     debugger
-    //     let file = e.target.files
-    //     const formData = new formData()
-    //     formData.append('image', {file})
-
-    //     try{
-    //         let res = await axios.post("http://localhost:3001/posts")
-    //     } catch(error) {
-    //         console.log(error)
-    //     }
-    // }
-
+   //
 
     return(
         <div>
@@ -67,12 +64,17 @@ const FeedPage = () => {
             <br></br>
         </div>
             <br></br>
-            <form>
+    
             <div className="fileUpload">
             <input type="file" name="myFile" placeholder="Upload an Image" onChange={uploadImage}/>
-            <button type="button">Choose File(s)</button>
+            {/* <button type="button">Choose File(s)</button> */}
             </div>
-            </form>
+
+            {loading ? (
+                <h3>Loading...</h3>
+            ): (
+                <img src={image} style ={{width: '200px'}} />
+            )}
             <br></br>
         <div className="feed">
             {postPics}
