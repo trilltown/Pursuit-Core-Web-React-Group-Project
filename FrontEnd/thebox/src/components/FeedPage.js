@@ -3,12 +3,10 @@ import LandingNavBar from './LandingPageNav'
 import { useHistory } from 'react-router-dom';
 import '../css/FeedPage.css'
 import imgs from '../css/images/WhiteLogo.png'
+import Feed from "./Feed"
 
 import axios from 'axios'
 
-{/* <input name="file" type="file"
-   class="file-upload" data-cloudinary-field="image_id"
-   data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"/> */}
 
 const FeedPage = () => {
     
@@ -30,29 +28,9 @@ const FeedPage = () => {
         fetchData()
     }, [])
 
-    const postPics = posts.map(post => {
-        return <div> <img src={post.post_pic} height="200px" width="200px"></img> <br/> {post.caption} </div>
-    })
-
     const uploadImage = (e) => {
         let file = e.target.files[0];
     }
-
-   
-    // const handleUpload = async(e) => {
-    //     debugger
-    //     let file = e.target.files
-    //     const formData = new formData()
-    //     formData.append('image', {file})
-
-    //     try{
-    //         let res = await axios.post("http://localhost:3001/posts")
-    //     } catch(error) {
-    //         console.log(error)
-    //     }
-    // }
-
-
     return(
         <div>
         <nav>
@@ -75,8 +53,7 @@ const FeedPage = () => {
             </form>
             <br></br>
         <div className="feed">
-            {postPics}
-            <p></p>
+            <Feed userPosts={posts}/>
         </div>
             <button>Load More...</button>
 
