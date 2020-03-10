@@ -25,7 +25,11 @@
     margin-top: 100px;
 }
 
-#button{
+#logo{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    /* padding-top: px; */
     height: 50px;
     width: 50px;
 }

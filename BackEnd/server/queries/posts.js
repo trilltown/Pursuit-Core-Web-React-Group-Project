@@ -1,4 +1,19 @@
 const db = require("../db/index")
+    const hashMaker = async(post)=>{
+    
+        let {id,caption}= post
+        let capArr = caption.split(" ")
+      
+        capArr.forEach( async char=>{
+          if(char[0]==="#"){
+            try{
+                await db.one("INSERT INTO hashtags  (tag,search_post_id) VALUES ($1,$2) RETURNING *", [char,id])
+            }catch(error){
+                console.log(error)
+            }
+          }
+        })
+      }
 
 
 
@@ -36,8 +51,11 @@ const getPostByUser = async (req,res, next) => {
 
 const createPost = async (req,res, next) => {
 
+    console.log(req)
+    let {user_post_id,caption} = req.body
     try{
         let newPost = await db.one("INSERT INTO posts  (user_post_id, post_pic, caption) VALUES (${user_post_id}, ${post_pic}, ${caption}) RETURNING *", req.body)
+        hashMaker(newPost)
         res.status(200).json({
             status: "Success",
             message: "Create Post",
@@ -66,5 +84,7 @@ const deletePost = async (req,res,next) => {
         })
     }
 }
+
+
 
 module.exports = { getAllPosts, getPostByUser, createPost, deletePost}

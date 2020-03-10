@@ -41,6 +41,28 @@ const searchUsersByName = async (req,res,next) => {
     }
 }
 
+const changeUserProfilePic = async (req, res, next) => {
+    let { profile_pic } = req.body
+    let { id } = req.params
+    console.log({id,newPic})
+    let updatePic = await db.one("UPDATE users SET profile_pic = $1 WHERE id = $2 RETURNING *", [profile_pic, id])
+    try {
+        res.status(200).json({
+            status: "Success",
+            message: "User profile picture updated",
+            body: {
+                updatePic
+            }
+        })
+    } catch (error) {
+        res.json({
+            status: "Error",
+            message: "Did not update profile pic"
+        })
+        next(error)
+    }
+}
+
 const getUsersPosts = async (req,res,next) => {
     let { id } = req.params
     let usersPosts = await db.any("SELECT * from posts where id = $1", [id])
@@ -60,26 +82,6 @@ const getUsersPosts = async (req,res,next) => {
         next(error)
     }
 }
-
-// const createUser = async (req,res,next) => {
-//     let { first_name, last_name, display_name, profile_pic } = req.body
-//     let newUser = await db.one("INSERT INTO users(first_name, last_name, display_name, profile_pic) VALUES ($1,$2,$3,$4) RETURNING *", [first_name, last_name, display_name, profile_pic]);
-//     try{
-//         res.status(200).json({
-//             status: "Success",
-//             message: "Created a new user",
-//             body: {
-//                 newUser
-//             }
-//         })
-//     } catch(error) {
-//         res.json({
-//             status: "Error",
-//             message: "User already exists"
-//         })
-//         next(error)
-//     }
-// }
 
 const createUser = async (req, res, next) => {
     try {
@@ -106,6 +108,7 @@ const createUser = async (req, res, next) => {
 module.exports = {
     getSingleUserById,
     searchUsersByName,
+    changeUserProfilePic,
     getUsersPosts,
     createUser 
 };
