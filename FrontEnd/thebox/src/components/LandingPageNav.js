@@ -16,7 +16,7 @@ const LandingNavBar = () => {
             <div className="toolbar_navigation_items">
 
             <NavLink to={"/feed"}>Feed</NavLink>
-            <NavLink to={"/profile"}>profile</NavLink>
+            <NavLink to={"/profile"}>Profile</NavLink>
             </div>
         </nav>
     </header>

@@ -6,10 +6,15 @@ import imgs from '../css/images/WhiteLogo.png'
 
 import axios from 'axios'
 
+{/* <input name="file" type="file"
+   class="file-upload" data-cloudinary-field="image_id"
+   data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"/> */}
 
 const FeedPage = () => {
     
     const [posts, setPosts] = useState([]);
+    const [image, setImage] = useState('');
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
     
@@ -29,6 +34,25 @@ const FeedPage = () => {
         return <div> <img src={post.post_pic} height="200px" width="200px"></img> <br/> {post.caption} </div>
     })
 
+    const uploadImage = (e) => {
+        let file = e.target.files[0];
+    }
+
+   
+    // const handleUpload = async(e) => {
+    //     debugger
+    //     let file = e.target.files
+    //     const formData = new formData()
+    //     formData.append('image', {file})
+
+    //     try{
+    //         let res = await axios.post("http://localhost:3001/posts")
+    //     } catch(error) {
+    //         console.log(error)
+    //     }
+    // }
+
+
     return(
         <div>
         <nav>
@@ -39,11 +63,16 @@ const FeedPage = () => {
             {/* <input type="image" id="logo" src={imgs}></input> */}
         <section>
         <div className="search">
-            <input placeholder="Search"></input>
+            <input placeholder="Search User"></input>
             <br></br>
         </div>
             <br></br>
-            <button>Create Post</button>
+            <form>
+            <div className="fileUpload">
+            <input type="file" name="myFile" placeholder="Upload an Image" onChange={uploadImage}/>
+            <button type="button">Choose File(s)</button>
+            </div>
+            </form>
             <br></br>
         <div className="feed">
             {postPics}

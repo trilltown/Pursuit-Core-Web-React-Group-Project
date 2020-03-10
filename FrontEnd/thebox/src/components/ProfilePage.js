@@ -86,6 +86,10 @@ const ProfilePage = () => {
         <div className="userInfo">
         {userInfo}
         </div>      
+        <br></br>
+        <div className="file">
+        <input type="file"/>
+        </div>
         <div className="userPosts">
             {userPosts}
         </div>
