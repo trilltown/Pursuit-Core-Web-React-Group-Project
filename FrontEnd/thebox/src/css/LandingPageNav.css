@@ -1,7 +1,7 @@
 .toolbar {
     position: fixed;
     width: 100%;
-    background-color: #000000;
+    background-color: #03396c;
     height: 50px;
     top: 0;
     left: 0;    
@@ -22,7 +22,8 @@
     color: white;
 }
 
-/* #logo{
-    height: 500px;
-    width: 50px;
-} */
+#logout{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
