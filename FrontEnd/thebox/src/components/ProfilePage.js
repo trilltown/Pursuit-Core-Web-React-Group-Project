@@ -78,7 +78,7 @@ const ProfilePage = () => {
             <LandingNavBar />
 
         </nav>
-            <input type="image" id="button" onClick={() => history.push('/feed')} src={imgs}></input>
+            {/* <input type="image" id="button" onClick={() => history.push('/feed')} src={imgs}></input> */}
         <div className="logout">
         <button onClick={handleLogout}>LOGOUT</button>
         </div>

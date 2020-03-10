@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LandingNavBar from './LandingPageNav'
 import { useHistory } from 'react-router-dom';
 import '../css/FeedPage.css'
-import imgs from '../css/images/logo1.png'
+import imgs from '../css/images/WhiteLogo.png'
 
 import axios from 'axios'
 
@@ -36,8 +36,8 @@ const FeedPage = () => {
           
 
         </nav>
+            {/* <input type="image" id="logo" src={imgs}></input> */}
         <section>
-            <input type="image" id="button" src={imgs}></input>
         <div className="search">
             <input placeholder="Search"></input>
             <br></br>
