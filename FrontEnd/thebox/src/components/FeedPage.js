@@ -45,10 +45,29 @@ const FeedPage = () => {
         )
         const file = await res.json()
         setImage(file.secure_url)
+        debugger 
         setLoading(false)
+        
     }
 
-   //
+    const handleClick = async (e) => {
+        e.preventDefault()
+        let id = sessionStorage.getItem("currentUser")
+        const data = {
+            "user_post_id": id,
+            "post_pic": image,
+            "caption": "cool"
+        }
+        axios.post("http://localhost:3001/posts", data)
+            .then((data) => {
+                console.log(data)
+                debugger
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+   
 
     return(
         <div>
@@ -67,7 +86,8 @@ const FeedPage = () => {
     
             <div className="fileUpload">
             <input type="file" name="myFile" placeholder="Upload an Image" onChange={uploadImage}/>
-            {/* <button type="button">Choose File(s)</button> */}
+            <input placeholder="Comment"></input>
+            <button type="button" onClick={handleClick}>Create Post</button>
             </div>
 
             {loading ? (
