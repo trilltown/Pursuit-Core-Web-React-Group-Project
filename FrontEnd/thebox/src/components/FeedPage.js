@@ -58,12 +58,12 @@ const FeedPage = () => {
         // e.preventDefault()
         let id = sessionStorage.getItem("currentUser")
             // debugger
-        const data = {
+        const post = {
             "user_post_id": id,
             "post_pic": image,
             "caption": caption
         }
-        axios.post("http://localhost:3001/posts", data)
+        axios.post("http://localhost:3001/posts", post)
             .then((data) => {
                 console.log(data)
                 // debugger
