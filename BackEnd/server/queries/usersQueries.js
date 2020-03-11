@@ -44,7 +44,6 @@ const searchUsersByName = async (req,res,next) => {
 const changeUserProfilePic = async (req, res, next) => {
     let { profile_pic } = req.body
     let { id } = req.params
-    console.log({id,newPic})
     let updatePic = await db.one("UPDATE users SET profile_pic = $1 WHERE id = $2 RETURNING *", [profile_pic, id])
     try {
         res.status(200).json({
