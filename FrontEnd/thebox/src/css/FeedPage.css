@@ -52,6 +52,9 @@ button{
 
 button:hover{
     border-radius: 20px;
-    transform: matrix3d(2,1);
     background-color: lightblue;
+}
+
+#caption{
+    border-radius: 15px;
 }

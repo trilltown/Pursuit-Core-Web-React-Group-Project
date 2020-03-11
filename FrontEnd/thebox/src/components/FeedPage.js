@@ -92,7 +92,7 @@ const FeedPage = () => {
             <form className="fileUpload" onSubmit={handleClick}>
             
             <input type="file" name="myFile" placeholder="Upload an Image" onChange={uploadImage}/>
-            <input  name="caption" placeholder="Comment" onChange={handleCaption}></input>
+            <input  id="caption" name="caption" placeholder="Comment" onChange={handleCaption}></input>
             <button type="submit">Create Post</button>
             </form>
 
