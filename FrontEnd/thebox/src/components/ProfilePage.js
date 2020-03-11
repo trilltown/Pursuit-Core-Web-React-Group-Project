@@ -106,6 +106,7 @@ const ProfilePage = () => {
             <div className="userPosts">
                 {userPosts}
             </div>
+            <br></br>
         </div>
     )
 }
