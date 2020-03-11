@@ -74,13 +74,15 @@ const ProfilePage = () => {
             })
         const file = await res.json()
         setProfilePic(file.secure_url)
+        console.log(profilePic)
     }
     
     const updateProfilePic = async (e) => {
-    e.preventDefault();
-    const id = sessionStorage.getItem("currentUser")    
+        e.preventDefault();
+        const id = sessionStorage.getItem("currentUser")    
         try{
-            let res = await axios.patch(`http://localhost:3001/users/${id}`, { profile_pic: profilePic }) 
+            let res = await axios.patch(`http://localhost:3001/users/${id}`, { profile_pic: profilePic })
+            debugger 
             fetchData()
         } catch(err) {
             console.log(err)
