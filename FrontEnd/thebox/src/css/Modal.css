@@ -1,0 +1,16 @@
+.post-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+}
+
+.modal-content {
+    width: 500px;
+    height: 500px;
+    background-color: lightgrey;
+}

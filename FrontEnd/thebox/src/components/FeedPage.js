@@ -3,6 +3,7 @@ import LandingNavBar from './LandingPageNav'
 import { useHistory } from 'react-router-dom';
 import '../css/FeedPage.css'
 import imgs from '../css/images/WhiteLogo.png'
+import Modal from './Modal'
 import axios from 'axios'
 
 
@@ -12,6 +13,7 @@ const FeedPage = () => {
     const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false)
     const [caption, setCaption] = useState("")
+    const [modal, setModal] = useState(false)
 
     useEffect(() => {
     
@@ -27,9 +29,22 @@ const FeedPage = () => {
         fetchData()
     }, [])
 
+    const handlePostClick = (e) => {
+        setModal(true)
+        debugger
+        return(
+            modal
+        )   
+    }
+
+
     const postPics = posts.map(post => {
-        return <div> <img src={post.post_pic} height="200px" width="200px"></img> <br/> {post.caption} </div>
+        return <div> 
+            <img src={post.post_pic} name="modal-button" height="200px" width="200px" onClick={handlePostClick}></img>
+       <br/> {post.caption} </div>
     })
+
+
 
     const uploadImage = async (e) => {
         const files = e.target.files;
@@ -73,40 +88,34 @@ const FeedPage = () => {
             })
     }
    
-
     return(
         <div>
         <nav>
-            <LandingNavBar />
-          
-
+            <LandingNavBar/>
         </nav>
-            {/* <input type="image" id="logo" src={imgs}></input> */}
         <section>
         <div className="search">
+            {/* <Modal onClick={handlePostClick}></Modal> */}
             <input placeholder="Search User"></input>
             <br></br>
         </div>
             <br></br>
-    
             <form className="fileUpload" onSubmit={handleClick}>
-            
             <input type="file" name="myFile" placeholder="Upload an Image" onChange={uploadImage}/>
             <input  name="caption" placeholder="Comment" onChange={handleCaption}></input>
             <button type="submit">Create Post</button>
             </form>
-
             {loading ? (
                 <h3>Loading...</h3>
             ): (
-                <img src={image} style ={{width: '200px'}} />
+                <img src={image} name="modal-button" style ={{width: '200px'}} />
             )}
             <br></br>
         <div className="feed">
             {postPics}
             <p></p>
         </div>
-            <button>Load More...</button>
+            <button onClick={handlePostClick}>Load More...</button>
 
         </section>
         </div>
