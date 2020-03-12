@@ -84,7 +84,7 @@ const FeedPage = () => {
             {/* <input type="image" id="logo" src={imgs}></input> */}
         <section>
         <div className="search">
-            <input placeholder="Search User"></input>
+            <input placeholder="Search #Hashtags"></input>
             <br></br>
         </div>
             <br></br>
