@@ -64,7 +64,7 @@ const changeUserProfilePic = async (req, res, next) => {
 
 const getUsersPosts = async (req,res,next) => {
     let { id } = req.params
-    let usersPosts = await db.any("SELECT * from posts where id = $1", [id])
+    let usersPosts = await db.any("SELECT * from posts WHERE id = $1 ", [id])
     try{
         res.status(200).json({
             status: "Success",
