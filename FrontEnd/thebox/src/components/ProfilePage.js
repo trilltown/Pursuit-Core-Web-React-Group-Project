@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../css/ProfilePage.css'
-import imgs from '../css/images/logo1.png'
+// import imgs from '../css/images/logo1.png'
 import axios from 'axios';
 import LandingNavBar from "./LandingPageNav";
 
@@ -44,7 +44,7 @@ const ProfilePage = () => {
     let userInfo = user.map(info => {
         return <section>
         <div className="profilePic">
-         <img src={info.profile_pic}></img> 
+         <img src={info.profile_pic} alt=""></img> 
         </div>
          <div className="userName">
          {info.display_name}    
