@@ -11,9 +11,9 @@ const FeedPage = () => {
     
     const [posts, setPosts] = useState([]);
     const [image, setImage] = useState('');
-    const [loading, setLoading] = useState(false)
-    const [caption, setCaption] = useState("")
-    const [modal, setModal] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [caption, setCaption] = useState("");
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
     
@@ -29,20 +29,15 @@ const FeedPage = () => {
         fetchData()
     }, [])
 
-    const handlePostClick = (e) => {
-        setModal(true)
-        debugger
-        return(
-            modal
-        )   
+    const toggleModal = () => {
+        setShowModal(!showModal) 
     }
-
 
     const postPics = posts.map(post => {
         return <div> 
-            <img src={post.post_pic} name="modal-button" height="200px" width="200px" onClick={handlePostClick}></img>
+         <img src={post.post_pic} name="modal-button" height="200px" width="200px" onClick={toggleModal}/>
        <br/> {post.caption} </div>
-    })
+    })  
 
 
 
@@ -70,9 +65,7 @@ const FeedPage = () => {
     }
 
     const handleClick = async (e) => {
-        // e.preventDefault()
         let id = sessionStorage.getItem("currentUser")
-            // debugger
         const post = {
             "user_post_id": id,
             "post_pic": image,
@@ -81,7 +74,6 @@ const FeedPage = () => {
         axios.post("http://localhost:3001/posts", post)
             .then((data) => {
                 console.log(data)
-                // debugger
             })
             .catch((err) => {
                 console.log(err)
@@ -95,7 +87,6 @@ const FeedPage = () => {
         </nav>
         <section>
         <div className="search">
-            {/* <Modal onClick={handlePostClick}></Modal> */}
             <input placeholder="Search User"></input>
             <br></br>
         </div>
@@ -115,9 +106,14 @@ const FeedPage = () => {
             {postPics}
             <p></p>
         </div>
-            <button onClick={handlePostClick}>Load More...</button>
+            <button >Load More...</button>
 
         </section>
+                
+        {showModal ? <Modal/> : null} 
+        
+       
+
         </div>
     )
 }
