@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const usersRouter = require('./routes/users');
 const postRouter = require('./routes/post');
 const commentsRouter = require('./routes/comments');
-const uploadsRouter = require('./routes/upload')
+// const uploadsRouter = require('./routes/upload')
 const hashTagRouter = require('./routes/hash')
 
 
