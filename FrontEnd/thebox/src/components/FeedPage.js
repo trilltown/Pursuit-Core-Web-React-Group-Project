@@ -14,6 +14,7 @@ const FeedPage = () => {
     const [loading, setLoading] = useState(false);
     const [caption, setCaption] = useState("");
     const [showModal, setShowModal] = useState(false)
+    const [focusPost,setFocusPost] = useState("")
 
     useEffect(() => {
     
@@ -29,13 +30,15 @@ const FeedPage = () => {
         fetchData()
     }, [])
 
-    const toggleModal = () => {
+    const toggleModal = (id) => {
+        // debugger
+        setFocusPost(id)
         setShowModal(!showModal) 
     }
 
     const postPics = posts.map(post => {
         return <div> 
-         <img src={post.post_pic} name="modal-button" height="200px" width="200px" onClick={toggleModal}/>
+         <img src={post.post_pic} name="modal-button" height="200px" width="200px" onClick={() => toggleModal(post.id)}/>
        <br/> {post.caption} </div>
     })  
 
@@ -110,7 +113,7 @@ const FeedPage = () => {
 
         </section>
                 
-        {showModal ? <Modal/> : null} 
+        {showModal ? <Modal post={focusPost} /> : null} 
         
        
 
