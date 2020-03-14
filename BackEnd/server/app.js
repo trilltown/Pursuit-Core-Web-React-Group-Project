@@ -12,11 +12,15 @@ app.use(bodyParser.json());
 const usersRouter = require('./routes/users');
 const postRouter = require('./routes/post');
 const commentsRouter = require('./routes/comments');
+// const uploadsRouter = require('./routes/upload')
+const hashTagRouter = require('./routes/hash')
 
 
 app.use('/users', usersRouter);
 app.use('/posts', postRouter);
 app.use('/comments', commentsRouter);
+app.use('/hashtags', hashTagRouter);
+// app.use('/uploads', uploadsRouter);
 
 app.listen(port, () => console.log("Server running on port ", port));
 

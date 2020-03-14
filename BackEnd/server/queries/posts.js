@@ -19,12 +19,11 @@ const db = require("../db/index")
 
 const getAllPosts = async (req, res, next) => {
     try{
-        let posts = await db.any("SELECT * FROM posts") 
+        let posts = await db.any("SELECT * FROM posts ORDER BY id DESC") 
         res.status(200).json({
             status: "Success",
             message: "got all posts",
             body: posts,
-
          })
 
     }catch(error){

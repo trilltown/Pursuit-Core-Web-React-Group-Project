@@ -90,7 +90,7 @@ const FeedPage = () => {
         </nav>
         <section>
         <div className="search">
-            <input placeholder="Search User"></input>
+            <input placeholder="Search #Hashtags"></input>
             <br></br>
         </div>
             <br></br>

@@ -1,6 +1,7 @@
+body{
+    background-color: #03396c;
+}
 
-@import "https://fonts.googleapis.com/css?family=Ubuntu:400";
-@import url(https://fonts.googleapis.com/css?family=Lobster);
 .feed {
     display: flex;
     flex-direction: row;
@@ -44,16 +45,16 @@
 }
 
 button{
-    border-radius: 20px;
-    transform: matrix3d(2,1);
-    height: 25px;
-    width: 80px;
+    /* border-radius: 20px;
+    transform: matrix3d(2,1); */
+    height: auto;
+    width: auto;
 }
 
 button:hover{
-    border-radius: 20px;
-    background-color: lightblue;
-}
+    background-color: black;
+    color: white;
+} 
 
 #caption{
     border-radius: 15px;
