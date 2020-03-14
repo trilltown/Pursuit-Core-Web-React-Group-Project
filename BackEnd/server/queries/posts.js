@@ -84,6 +84,23 @@ const deletePost = async (req,res,next) => {
     }
 }
 
+const getSinglePost = async (req,res,next) => {
+    try{
+        let { id } = req.params
+        let singlePost = await db.any("SELECT * FROM posts WHERE id =$1", [id])
+        res.status(200).json({
+            status: "Success",
+            message: "Got single post by id: " + id,
+            body: {
+                singlePost
+            }
+        })
+    } catch(error) {
+        res.status(401).json({
+            status: "fail",
+            message: "Unable to get single post"
+        })
+    }
+}
 
-
-module.exports = { getAllPosts, getPostByUser, createPost, deletePost}
+module.exports = { getAllPosts, getPostByUser, createPost, deletePost, getSinglePost}
