@@ -89,15 +89,19 @@ const ProfilePage = () => {
         setDisplayName(e.target.value)
     }
     
-    const updateProfilePic = async (e) => {
+    const updateUser = async (e) => {
+        let form = e.target
         e.preventDefault();
+        // debugger
         const id = sessionStorage.getItem("currentUser")    
         try{
             let res = await axios.patch(`http://localhost:3001/users/${id}`, { display_name: displayName, profile_pic: profilePic })
             fetchData()
         } catch(err) {
             console.log(err)
-         }
+        }
+        // debugger
+        form.reset()
     }
 
     return( 
@@ -109,7 +113,7 @@ const ProfilePage = () => {
                 {userInfo}
             </div>      
             <div className="file">
-                <form onSubmit={updateProfilePic}>
+                <form onSubmit={updateUser}>
                     <input type="text" onChange={handleDisplayName}/>
                     <input type="file" onChange={selectProfilePic}/>
                     <button type="submit">Edit User</button>
