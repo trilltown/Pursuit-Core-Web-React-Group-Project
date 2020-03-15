@@ -15,23 +15,55 @@ const FeedPage = () => {
     const [caption, setCaption] = useState("");
     const [showModal, setShowModal] = useState(false)
     const [focusPost,setFocusPost] = useState("")
+    const [searchFail,setsearchFail] = useState(false)
 
-    useEffect(() => {
-    
-        const fetchData = async () => {
-            try{
-                let res = await axios.get("http://localhost:3001/posts")
-                let data = res.data.body  
-                setPosts(data)
-            } catch(error) {
-                console.log(error)
-            }
+
+    const fetchData = async () => {
+        try{
+            let res = await axios.get("http://localhost:3001/posts")
+            let data = res.data.body  
+            setPosts(data)
+        } catch(error) {
+            console.log(error)
         }
+    }
+    useEffect(() => {
         fetchData()
     }, [])
 
-    const toggleModal = (id) => {
+
+    
+    const wordSearch = (async (str)=>{
+        if(str===""){
+            setsearchFail(false)
+            return fetchData()
+        }
+        try{
+            let res = await axios.get(`http://localhost:3001/hashtags/search/?hashtag=${str}`)
+            // debugger
+            if(res.data.status==="fail"){
+                setsearchFail(true)
+                // debugger
+                setPosts([])
+            }else if(res.data.status==="Success"){
+                setsearchFail(false)
+                setPosts(res.data.body)
+            }
+            // let data = res.data.body  
+            // setPosts(data)
+        } catch(error) {
+            console.log(error)
+        }
+    })
+    
+    const handleSearch =(e)=>{
+        e.preventDefault()
+        wordSearch(e.target.value)
+        // setSearchActive(true)
         // debugger
+    }
+
+    const toggleModal = (id) => {
         setFocusPost(id)
         setShowModal(!showModal) 
     }
@@ -90,7 +122,7 @@ const FeedPage = () => {
         </nav>
         <section>
         <div className="search">
-            <input placeholder="Search #Hashtags"></input>
+            <input type="text" placeholder="Search #Hashtags" onChange={handleSearch}/>
             <br></br>
         </div>
             <br></br>
@@ -114,6 +146,7 @@ const FeedPage = () => {
         </section>
                 
         {showModal ? <Modal post={focusPost} /> : null} 
+        {searchFail?<div><h2> No Posts found </h2></div>:null}
         
        
 
