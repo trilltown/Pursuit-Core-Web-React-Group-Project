@@ -13,7 +13,7 @@ body{
 }
 .feed img:hover  {
     background-color: rgba(0, 0,0, .50);
-    
+    cursor: pointer;
 }
 
 .feed button {
