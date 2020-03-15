@@ -88,7 +88,7 @@ const LandingPage = () => {
             <div>
         <div id="leftSide">
             <img className="logo" src={imgs}/>
-                <h1 className="header">The Box.</h1>
+                <h1 className="header">The Box</h1>
             </div>
             {/* <img src='FrontEnd/thebox/src/css/images/whitespeaker.jpg' alt=""></img> */}
             </div>
@@ -100,7 +100,7 @@ const LandingPage = () => {
                 <div className="bottom">
                 
                 </div>
-                <h1 id="slogan">Box in. Box out. </h1>
+                <h1 id="slogan">Box in [ ] Box out </h1>
                 </div>
 
 
