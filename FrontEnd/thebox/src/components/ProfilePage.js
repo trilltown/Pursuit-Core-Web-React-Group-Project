@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import '../css/ProfilePage.css'
 // import imgs from '../css/images/logo1.png'
 import axios from 'axios';
+import Modal from './Modal';
 import LandingNavBar from "./LandingPageNav";
 
 const ProfilePage = () => {
     const [user, setUser] = useState([]);
-    const [posts, setPosts] = useState([])
-    const [profilePic, setProfilePic] = useState("")
+    const [posts, setPosts] = useState([]);
+    const [profilePic, setProfilePic] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [focusPost,setFocusPost] = useState("");
 
     const fetchData = async () => {
         try{
@@ -41,6 +44,11 @@ const ProfilePage = () => {
         fetchPosts()
     }, [])
 
+    const toggleModal = (id) => {
+        setFocusPost(id)
+        setShowModal(!showModal) 
+    }
+
     let userInfo = user.map(info => {
         return <section>
         <div className="profilePic">
@@ -54,7 +62,7 @@ const ProfilePage = () => {
     
     let userPosts = posts.map(post => {
         return <div>
-            <img src={post.post_pic}></img>
+            <img src={post.post_pic} onClick={() => toggleModal(post.id)}></img>
             <div>
                 <p>{post.caption}</p>
             </div>
@@ -107,6 +115,7 @@ const ProfilePage = () => {
                 {userPosts}
             </div>
             <br></br>
+            {showModal ? <Modal post={focusPost} /> : null}
         </div>
     )
 }

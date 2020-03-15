@@ -5,14 +5,12 @@ import '../css/Modal.css'
 
 const Modal = ({post}) => {
     const [posts, setPosts] = useState([]);
-    // debugger
-
+ 
     useEffect(() => {
     
         const fetchData = async () => {
             try{
                 let res = await axios.get(`http://localhost:3001/posts/post/${post}`)
-                // debugger
                 let data = res.data.body.singlePost[0] 
                 setPosts(data)
             } catch(error) {
@@ -22,13 +20,12 @@ const Modal = ({post}) => {
         fetchData()
     }, [])
 
+
  
         return (
-      
         <div className="modalPic"> 
          <img src={posts.post_pic} name="modal-button" height="500px" width="500px"/>
        <br/> {posts.caption} </div>
-      
         )
 
     return (
