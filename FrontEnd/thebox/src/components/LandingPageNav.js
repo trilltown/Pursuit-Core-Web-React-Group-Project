@@ -23,8 +23,8 @@ const LandingNavBar = () => {
         <input type="image" id="logo" onClick={() => history.push('/feed')} src={imgs}></input>
             <div className="toolbar_navigation_items">
 
-            <NavLink to={"/feed"}>Feed</NavLink>
-            <NavLink to={"/profile"}>Profile</NavLink>
+            <NavLink to={"/feed"} className="feed">Feed</NavLink>
+            <NavLink to={"/profile"} className="profile">Profile</NavLink>
             </div>
         </nav>
     </header>
