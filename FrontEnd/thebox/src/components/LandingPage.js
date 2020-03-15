@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import "../css/LandingPage.css"
 import axios from 'axios';
 import imgs from '../css/images/logo1.png'
+import thebox from '../css/images/image.png'
 const LandingPage = () => {
 
     const [Form,setShowForm] = useState(false)
@@ -105,7 +106,9 @@ const LandingPage = () => {
 
                 {Form?login():null}
                 {signUpForm?signup():null}
-                
+
+
+                <img id="box" src={thebox} alt="Thank you Roddie" />
             </div>
     )
 }

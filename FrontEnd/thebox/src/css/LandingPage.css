@@ -43,8 +43,8 @@ body{
 
 button{
         display: inline-block;
-        height: auto;
-        width: auto;
+        height: 33px;
+        width: 150px;
         font-weight: 400;
         text-align: center;
         white-space: nowrap;
@@ -85,6 +85,9 @@ button{
 }
 
 .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 200px;
     width: 200px;;
 }
@@ -170,8 +173,8 @@ button{
     background-color: transparent;
     background-image: none;
     border-color: white;
-    height: auto;
-    width: auto;
+      height: 33px;
+    width: 150px;
     cursor: pointer;
 }
 
