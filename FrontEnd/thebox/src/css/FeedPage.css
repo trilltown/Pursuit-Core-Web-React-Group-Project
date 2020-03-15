@@ -77,6 +77,6 @@ button:active{
 }
 
 .fileUpload input{
-    background-color: #005b96;
+    background-color: none;
     color: white
 }

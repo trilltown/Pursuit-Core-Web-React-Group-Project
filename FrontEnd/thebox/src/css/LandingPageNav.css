@@ -27,3 +27,12 @@
     top: 0px;
     right: 0px;
 }
+
+.feed {
+    text-decoration: none;
+}
+
+.profile {
+    text-decoration: none;
+    color: white;
+}

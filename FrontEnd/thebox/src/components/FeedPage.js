@@ -141,7 +141,7 @@ const FeedPage = () => {
             {postPics}
             <p></p>
         </div>
-            <button >Load More...</button>
+
 
         </section>
                 
