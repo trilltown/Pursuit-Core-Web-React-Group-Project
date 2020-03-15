@@ -2,7 +2,7 @@ const users = require('express').Router();
 const {
   getSingleUserById,
   searchUsersByName,
-  changeUserProfilePic,
+  editUserInfo,
   getUsersPosts,
   createUser
 } = require("../queries/usersQueries")
@@ -10,7 +10,7 @@ const {
 
 users.get("/:id", getSingleUserById)
 users.get("/search/:userName", searchUsersByName)
-users.patch("/:id", changeUserProfilePic)
+users.patch("/:id", editUserInfo)
 users.get("/posts/:id", getUsersPosts)
 users.post("/", createUser)
 

@@ -41,24 +41,46 @@ const searchUsersByName = async (req,res,next) => {
     }
 }
 
-const changeUserProfilePic = async (req, res, next) => {
-    let { profile_pic } = req.body
-    let { id } = req.params
-    let updatePic = await db.one("UPDATE users SET profile_pic = $1 WHERE id = $2 RETURNING *", [profile_pic, id])
+// const changeUserProfilePic = async (req, res, next) => {
+//     let { profile_pic } = req.body
+//     let { id } = req.params
+//     let updatePic = await db.one("UPDATE users SET profile_pic = $1 WHERE id = $2 RETURNING *", [profile_pic, id])
+//     try {
+//         res.status(200).json({
+//             status: "Success",
+//             message: "User profile picture updated",
+//             body: {
+//                 updatePic
+//             }
+//         })
+//     } catch (error) {
+//         res.json({
+//             status: "Error",
+//             message: "Did not update profile pic"
+//         })
+//         next(error)
+//     }
+// }
+
+const editUserInfo = async (req, res, next) => {
     try {
+        let {display_name, profile_pic} = req.body;
+        let id = req.params.id;
+        let user = await db.one(`UPDATE users SET  display_name='${display_name}', profile_pic='${profile_pic}' WHERE id=${id} RETURNING *`);
         res.status(200).json({
-            status: "Success",
-            message: "User profile picture updated",
+            status: "success",
+            message: "all users posts",
             body: {
-                updatePic
+                user
             }
         })
-    } catch (error) {
-        res.json({
+    } catch (err){
+        res.status(400).json({
             status: "Error",
-            message: "Did not update profile pic"
+            message: "Error",
+            payload: err
         })
-        next(error)
+        next()
     }
 }
 
@@ -107,7 +129,7 @@ const createUser = async (req, res, next) => {
 module.exports = {
     getSingleUserById,
     searchUsersByName,
-    changeUserProfilePic,
+    editUserInfo,
     getUsersPosts,
     createUser 
 };
