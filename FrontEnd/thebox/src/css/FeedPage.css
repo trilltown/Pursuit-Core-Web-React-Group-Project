@@ -13,7 +13,7 @@ body{
 }
 .feed img:hover  {
     background-color: rgba(0, 0,0, .50);
-    
+    cursor: pointer;
 }
 
 .feed button {
@@ -45,16 +45,26 @@ body{
 }
 
 button{
-    /* border-radius: 20px;
-    transform: matrix3d(2,1); */
+    color: white;
+    background-color: transparent;
+    background-image: none;
+    border-color:white;
+    height: 100px;
+    width: 200px;
+    cursor: pointer;
     height: auto;
     width: auto;
 }
 
 button:hover{
-    background-color: black;
-    color: white;
-} 
+    background-color: #b3cde0;
+    color: black
+}
+
+button:active{
+    background-color: rgb(8, 123, 199);
+}
+
 
 #caption{
     border-radius: 15px;

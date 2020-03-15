@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import "../css/LandingPage.css"
 import axios from 'axios';
 import imgs from '../css/images/logo1.png'
+import thebox from '../css/images/image.png'
 const LandingPage = () => {
 
     const [Form,setShowForm] = useState(false)
@@ -96,17 +97,18 @@ const LandingPage = () => {
                     <button id="logIN" onClick={handleLogInClick}>Login</button>
                     <button id="signUP" onClick={handleSignUpClick}>Signup</button>
                 </header>
+                <div className="bottom">
                 
                 </div>
-                <div className="bottom">
                 <h1 id="slogan">Box in. Box out. </h1>
                 </div>
 
 
                 {Form?login():null}
                 {signUpForm?signup():null}
-                <div id="blankSpace"></div>
-                
+
+
+                <img id="box" src={thebox} alt="Thank you Roddie" />
             </div>
     )
 }
