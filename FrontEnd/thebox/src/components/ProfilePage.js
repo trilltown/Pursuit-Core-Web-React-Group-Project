@@ -9,6 +9,7 @@ const ProfilePage = () => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([]);
     const [profilePic, setProfilePic] = useState("");
+    const [displayName, setDisplayName] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [focusPost,setFocusPost] = useState("");
 
@@ -82,15 +83,17 @@ const ProfilePage = () => {
             })
         const file = await res.json()
         setProfilePic(file.secure_url)
-        console.log(profilePic)
+    }
+
+    const handleDisplayName = async (e) => {
+        setDisplayName(e.target.value)
     }
     
     const updateProfilePic = async (e) => {
         e.preventDefault();
         const id = sessionStorage.getItem("currentUser")    
         try{
-            let res = await axios.patch(`http://localhost:3001/users/${id}`, { profile_pic: profilePic })
-            debugger 
+            let res = await axios.patch(`http://localhost:3001/users/${id}`, { display_name: displayName, profile_pic: profilePic })
             fetchData()
         } catch(err) {
             console.log(err)
@@ -107,8 +110,9 @@ const ProfilePage = () => {
             </div>      
             <div className="file">
                 <form onSubmit={updateProfilePic}>
+                    <input type="text" onChange={handleDisplayName}/>
                     <input type="file" onChange={selectProfilePic}/>
-                    <button type="submit">Change Pic</button>
+                    <button type="submit">Edit User</button>
                 </form>
             </div>
             <div className="userPosts">
