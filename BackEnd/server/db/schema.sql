@@ -1,8 +1,3 @@
-DROP DATABASE IF EXISTS thebox_db;
-CREATE DATABASE thebox_db;
-
-\c thebox_db;
-
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS comments;

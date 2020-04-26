@@ -1,12 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv').config();
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.get('/', (req,res) => {
+    res.json("Hello World")
+})
 
 
 const usersRouter = require('./routes/users');

@@ -1,0 +1,21 @@
+{
+  "name": "Pursuit-Core-Web-React-Group-Project",
+  "version": "1.0.0",
+  "description": "For this project, in a group, build a Full-Stack Application with Express.js, PostgreSQL and React where users can upload and view images.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "cd backend && npm install && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trilltown/Pursuit-Core-Web-React-Group-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trilltown/Pursuit-Core-Web-React-Group-Project/issues"
+  },
+  "homepage": "https://github.com/trilltown/Pursuit-Core-Web-React-Group-Project#readme"
+}
